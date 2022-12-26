@@ -1,5 +1,7 @@
 body {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -7,7 +9,29 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+a {
+  text-decoration: none;
+  color: unset;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+@font-face {
+  font-family: "dancing";
+  src: url("./fonts/Dancing_Script/DancingScript-VariableFont_wght.ttf") format("truetype");
+}
+@font-face {
+  font-family: "dancing-bold";
+  src: url("./fonts/Dancing_Script/static/DancingScript-Bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "dancing-med";
+  src: url("./fonts/Dancing_Script/static/DancingScript-Medium.ttf") format("truetype");
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
