@@ -14,7 +14,7 @@ import { useSelector } from "react-redux";
 const Header = () => {
   const location = useLocation();
 
-  const state = useSelector((state) => state.cartState);
+  const state = useSelector((state) => state.cart);
 
   const [isBurgerShow, setIsBurgerShow] = useState(false);
 

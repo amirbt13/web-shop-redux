@@ -5,12 +5,15 @@ import arrow from "../../icons/down-arrow.svg";
 
 // redux
 import { useSelector, useDispatch } from "react-redux";
-import { changeShow, changeValue } from "../../redux/filters/filterAction";
-import { changeShowProducts } from "../../redux/products/productsAction";
+import {
+  changeFilterShow,
+  changeFilterValue,
+} from "../../redux/filters/filterSlice";
+import { changeShowProducts } from "../../redux/products/productsSlice";
 
 const FilterCategory = () => {
-  const products = useSelector((state) => state.productsState.products);
-  const filterState = useSelector((state) => state.filterState);
+  const products = useSelector((state) => state.products.products);
+  const filterState = useSelector((state) => state.filter);
   const dispatch = useDispatch();
 
   const [categories, setCategories] = useState([]);
@@ -25,7 +28,12 @@ const FilterCategory = () => {
   }, [products]);
 
   useEffect(() => {
-    dispatch(changeShowProducts("category", filterState.category.value));
+    dispatch(
+      changeShowProducts({
+        name: "category",
+        value: filterState.category.value,
+      })
+    );
     // eslint-disable-next-line
   }, [filterState.category.value]);
 
@@ -35,7 +43,7 @@ const FilterCategory = () => {
     >
       <div
         className="flex justify-between"
-        onClick={() => dispatch(changeShow("category"))}
+        onClick={() => dispatch(changeFilterShow("category"))}
       >
         <p>Categories </p>
         <img className=" w-4" src={arrow} alt="arrow-down" />
@@ -50,7 +58,14 @@ const FilterCategory = () => {
             <div key={category}>
               <label className="mr-2">{category}</label>
               <input
-                onClick={(event) => dispatch(changeValue(event.target))}
+                onClick={(event) =>
+                  dispatch(
+                    changeFilterValue({
+                      name: event.target.name,
+                      value: event.target.value,
+                    })
+                  )
+                }
                 type="radio"
                 name="category"
                 value={category}

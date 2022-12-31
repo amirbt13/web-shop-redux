@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 
 import { isInCart, quantityCount } from "../helperF/functions";
 
@@ -8,10 +8,10 @@ import {
   removeItem,
   increase,
   decrease,
-} from "../redux/cart/cartAction";
+} from "../redux/cart/cartSlice";
 
 const CartButtons = ({ product }) => {
-  const state = useSelector((state) => state.cartState);
+  const state = useSelector((state) => state.cart);
   const dispatch = useDispatch();
 
   return (

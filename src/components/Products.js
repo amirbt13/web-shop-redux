@@ -8,7 +8,7 @@ import Filters from "./Filters";
 import { useSelector } from "react-redux";
 
 const Products = () => {
-  const productsState = useSelector((state) => state.productsState);
+  const productsState = useSelector((state) => state.products);
 
   return (
     <div className="flex flex-col-reverse sm:flex-row">

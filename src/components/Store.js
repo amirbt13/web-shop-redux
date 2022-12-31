@@ -8,12 +8,12 @@ import Products from "./Products";
 import ProductDetails from "./ProductDetails";
 
 // redux
-import { fetchProducts } from "../redux/products/productsAction";
+import { fetchProducts } from "../redux/products/productsSlice";
 import { useSelector, useDispatch } from "react-redux";
 
 const Store = () => {
   const dispatch = useDispatch();
-  const productsState = useSelector((state) => state.productsState);
+  const productsState = useSelector((state) => state.products);
 
   // get products when render
   useEffect(() => {

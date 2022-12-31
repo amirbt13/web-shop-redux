@@ -5,13 +5,13 @@ import { Link } from "react-router-dom";
 
 // redux
 import { useSelector, useDispatch } from "react-redux";
-import { checkout, clear } from "../redux/cart/cartAction";
+import { checkout, clear } from "../redux/cart/cartSlice";
 
 // components
 import CartItem from "./CartItem";
 
 const Cart = () => {
-  const state = useSelector((state) => state.cartState);
+  const state = useSelector((state) => state.cart);
   const dispatch = useDispatch();
 
   return (

@@ -8,16 +8,21 @@ import arrow from "../../icons/down-arrow.svg";
 
 // redux
 import { useSelector, useDispatch } from "react-redux";
-import { changeShow, changeValue } from "../../redux/filters/filterAction";
-import { changeShowProducts } from "../../redux/products/productsAction";
+import {
+  changeFilterShow,
+  changeFilterValue,
+} from "../../redux/filters/filterSlice";
+import { changeShowProducts } from "../../redux/products/productsSlice";
 
 const FilterPrice = () => {
-  const filterState = useSelector((state) => state.filterState);
-  const products = useSelector((state) => state.productsState.products);
+  const filterState = useSelector((state) => state.filter);
+  const products = useSelector((state) => state.products.products);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(changeShowProducts("price", filterState.price.value));
+    dispatch(
+      changeShowProducts({ name: "price", value: filterState.price.value })
+    );
     // eslint-disable-next-line
   }, [filterState.price.value]);
 
@@ -25,7 +30,7 @@ const FilterPrice = () => {
     <section className="bg-white text-gray-800 mb-2 mx-1 rounded-lg py-1 px-2">
       <div
         className="flex justify-between"
-        onClick={() => dispatch(changeShow("price"))}
+        onClick={() => dispatch(changeFilterShow("price"))}
       >
         <p>
           Price
@@ -45,7 +50,14 @@ const FilterPrice = () => {
           type="range"
           min={min(products)}
           max={max(products)}
-          onChange={(event) => dispatch(changeValue(event.target))}
+          onChange={(event) =>
+            dispatch(
+              changeFilterValue({
+                name: event.target.name,
+                value: event.target.value,
+              })
+            )
+          }
         />
         <label>${max(products)}</label>
       </div>

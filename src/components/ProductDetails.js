@@ -13,7 +13,7 @@ const ProductDetails = () => {
   const params = useParams();
   const id = params.id - 1;
 
-  const products = useSelector((state) => state.productsState.products);
+  const products = useSelector((state) => state.products.products);
   const product = products[id];
 
   return (

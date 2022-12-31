@@ -10,15 +10,15 @@ import FilterPrice from "./filterComponents/FilterPrice";
 
 // redux
 import { useDispatch, useSelector } from "react-redux";
-import { changeShow } from "../redux/filters/filterAction";
-import { ShowAllProducts } from "../redux/products/productsAction";
+import { changeFilterShow } from "../redux/filters/filterSlice";
+import { showAllProducts } from "../redux/products/productsSlice";
 
 const Filters = () => {
-  const state = useSelector((state) => state.filterState);
+  const state = useSelector((state) => state.filter);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(ShowAllProducts());
+    dispatch(showAllProducts());
     // eslint-disable-next-line
   }, []);
 
@@ -26,7 +26,7 @@ const Filters = () => {
     <div className="basis-1/4 md:basis-1/5 bg-gradient-to-r from-cyan-500 to-indigo-700 text-white transition-all ease-in duration-200 mt-1 rounded-sm sm:rounded-md sm:mx-2 sm:mt-[24px] sm:h-72">
       <div
         className="text-center py-2 font-semibold flex justify-center"
-        onClick={() => dispatch(changeShow("main"))}
+        onClick={() => dispatch(changeFilterShow("main"))}
       >
         Filters
         <img className="ml-1 mt-1 w-4" src={arrowWhite} alt="arrow-down" />
