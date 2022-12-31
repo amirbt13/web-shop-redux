@@ -9,6 +9,7 @@ import { checkout, clear } from "../redux/cart/cartSlice";
 
 // components
 import CartItem from "./CartItem";
+import { Helmet } from "react-helmet";
 
 const Cart = () => {
   const state = useSelector((state) => state.cart);
@@ -16,6 +17,9 @@ const Cart = () => {
 
   return (
     <div className="flex flex-col-reverse md:flex-row justify-end min-h-[100vh] pt-2 bg-slate-100">
+      <Helmet>
+        <title>Cart</title>
+      </Helmet>
       <div className="basis-3/4 ">
         {state.selectedItems.length > 0 ? (
           state.selectedItems.map((item) => (

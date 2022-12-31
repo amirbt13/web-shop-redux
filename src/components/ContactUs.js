@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet";
 
 // images
 import me from "../me.JPEG";
@@ -6,6 +7,9 @@ import me from "../me.JPEG";
 const ContactUs = () => {
   return (
     <div className="flex items-center sm:items-start lg:items-center justify-center h-[80vh]">
+      <Helmet>
+        <title>Contact Us</title>
+      </Helmet>
       <div className=" bg-slate-50 lg:w-1/2 sm:w-4/12 w-1/2 flex flex-col lg:flex-row-reverse  justify-between rounded-lg overflow-hidden shadow-2xl">
         <div className="hidden sm:block">
           <img className=" lg:w-64 w-full" src={me} alt="me" />

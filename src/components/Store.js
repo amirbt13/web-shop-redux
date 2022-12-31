@@ -10,6 +10,7 @@ import ProductDetails from "./ProductDetails";
 // redux
 import { fetchProducts } from "../redux/products/productsSlice";
 import { useSelector, useDispatch } from "react-redux";
+import { Helmet } from "react-helmet";
 
 const Store = () => {
   const dispatch = useDispatch();
@@ -22,6 +23,9 @@ const Store = () => {
   }, []);
   return (
     <div>
+      <Helmet>
+        <title>Store</title>
+      </Helmet>
       <Routes>
         <Route index element={<Products />} />
         <Route path="/products/:id" element={<ProductDetails />} />
