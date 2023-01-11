@@ -15,6 +15,7 @@ import { showAllProducts } from "../redux/products/productsSlice";
 
 const Filters = () => {
   const state = useSelector((state) => state.filter);
+  const darkMode = useSelector((state) => state.darkMode.darkMode);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -23,7 +24,11 @@ const Filters = () => {
   }, []);
 
   return (
-    <div className="basis-1/4 md:basis-1/5 bg-gradient-to-r from-cyan-500 to-indigo-700 text-white transition-all ease-in duration-200 mt-1 rounded-sm sm:rounded-md sm:mx-2 sm:mt-[24px] sm:h-72">
+    <div
+      className={`basis-1/4 md:basis-1/5 bg-gradient-to-r text-white transition-all ease-in duration-200 mt-1 rounded-sm sm:rounded-md sm:mx-2 sm:mt-[24px] sm:h-72 ${
+        darkMode ? "from-slate-600 to-slate-700" : "from-cyan-500 to-indigo-700"
+      }`}
+    >
       <div
         className="text-center py-2 font-semibold flex justify-center"
         onClick={() => dispatch(changeFilterShow("main"))}

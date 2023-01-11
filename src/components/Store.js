@@ -22,7 +22,7 @@ const Store = () => {
     // eslint-disable-next-line
   }, []);
   return (
-    <div>
+    <>
       <Helmet>
         <title>Store</title>
       </Helmet>
@@ -30,7 +30,7 @@ const Store = () => {
         <Route index element={<Products />} />
         <Route path="/products/:id" element={<ProductDetails />} />
       </Routes>
-    </div>
+    </>
   );
 };
 
